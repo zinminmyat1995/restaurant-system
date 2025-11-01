@@ -34,28 +34,22 @@ if (!includeWayfinder) {
 export default defineConfig({
   server: {
     host: process.env.VITE_SERVER_HOST || 'localhost',
-    hmr: {
-      host: process.env.VITE_SERVER_HOST || 'localhost',
-    },
+    hmr: { host: process.env.VITE_SERVER_HOST || 'localhost' },
   },
   plugins: [
     laravel({
       input: ['resources/css/app.css', 'resources/js/app.tsx'],
-      ssr: 'resources/js/ssr.tsx',
+      // SSR 안쓰면 주석 처리 유지
+      // ssr: 'resources/js/ssr.tsx',
       refresh: true,
     }),
-    react({
-      babel: {
-        plugins: ['babel-plugin-react-compiler'],
-      },
-    }),
+    react({ babel: { plugins: ['babel-plugin-react-compiler'] } }),
     tailwindcss(),
-    // Only include Wayfinder when available & allowed
-    includeWayfinder && wayfinder({
-      formVariants: true,
-    }),
+    includeWayfinder && wayfinder({ formVariants: true }),
   ].filter(Boolean),
-  esbuild: {
-    jsx: 'automatic',
+  esbuild: { jsx: 'automatic' },
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
   },
 });
