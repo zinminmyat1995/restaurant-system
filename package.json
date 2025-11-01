@@ -9,7 +9,7 @@
         "format:check": "prettier --check resources/",
         "lint": "eslint . --fix",
         "types": "tsc --noEmit",
-        "vercel-build": "cross-env WAYFINDER_DISABLE=1 vite build"
+        "vercel-build": "WAYFINDER_DISABLE=1 vite build"
     },
     "devDependencies": {
         "@eslint/js": "^9.19.0",
