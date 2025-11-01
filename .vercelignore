@@ -1,0 +1,22 @@
+# big / generated / local-only
+node_modules
+**/node_modules
+vendor
+**/vendor
+storage
+bootstrap/cache
+public/storage
+public/hot
+public/build
+resources/js/**/node_modules
+
+# vcs & env & misc
+.git
+.gitignore
+.vercel
+.env
+*.log
+.idea
+.vscode
+tests
+.DS_Store
